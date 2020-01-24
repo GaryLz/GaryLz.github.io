@@ -1,7 +1,7 @@
 ---
 title: How Do I Love Thee
 date: 2019-04-03 21:45:25
-tags: - Poems
+tags:
 ---
 
 ## How Do I Love Thee
@@ -30,4 +30,5 @@ I love thee with a love I seemed to lose with my lost saints,
 I love thee with the breath, smiles, tears, of all my life 
 
 and, if God choose, I shall but love thee better after death.
+
 > 

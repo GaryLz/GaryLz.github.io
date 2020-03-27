@@ -1,7 +1,12 @@
 ---
 title: hexo-backup
 date: 2020-03-16 12:41:44
-tags: hexo, backup
+categories:
+- setups
+- routine
+tags: 
+- hexo
+- backup
 ---
 
 

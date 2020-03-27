@@ -1,7 +1,9 @@
 ---
 title: categories
 date: 2019-03-17 20:53:54
+type: "categories"
 ---
+
 
 - CS
  - overview on my mojor field
@@ -22,10 +24,10 @@ date: 2019-03-17 20:53:54
 - Self
  - my own framework of Priciple&Rules
  - coverage&refinement- how to do a deduction and compression.
- 
+
  >like zhihu, evernote, pocket(facing info-overwhelming era)
 
-####Apr.6-7th to-do list
+#### Apr.6-7th to-do list
 
 - the algorithms of the first 4 chapters 
 

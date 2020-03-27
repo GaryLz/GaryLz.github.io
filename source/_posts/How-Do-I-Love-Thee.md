@@ -1,6 +1,8 @@
 ---
 title: How Do I Love Thee
 date: 2019-04-03 21:45:25
+categories:
+- poetry
 tags:
 ---
 

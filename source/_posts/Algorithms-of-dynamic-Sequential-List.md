@@ -1,9 +1,10 @@
 ---
 title: Algorithms of dynamic Sequential List
 date: 2019-03-19 10:35:26
-tags: "algorithms"
 catogories: 
-    - "DSAA"
+- data_structures
+tags: 
+- seqList
 ---
 
 

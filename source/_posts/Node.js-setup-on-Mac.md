@@ -1,7 +1,12 @@
 ---
 title: Node.js-setup-on-Mac
 date: 2020-03-16 14:57:06
-tags: Node.js, Mac
+categories:
+- setups
+tags: 
+- Node.js
+- Mac
+
 ---
 
 # Node.js Setup on Mac

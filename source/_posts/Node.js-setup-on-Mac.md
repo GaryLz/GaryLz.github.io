@@ -113,7 +113,7 @@ nvm ls
 
 然后check一下，看到如下截图
 
-![success](../pics/node-setup-success.png)
+![success](https://i.loli.net/2020/04/01/5cDSYBj4oQsCwl9.png)
 
 
 
@@ -121,7 +121,7 @@ nvm ls
 
 Note: 而我的情况，并没有遵循上面所说那样，下载个node稳定版v8.11.3,相反下载了lts/carbon项目最新版，之后就出现没有全绑定问题，即stable版本并没有使用默认版，相反使用node原先预设的v11.3.0。
 
-![unsuccesss](../pics/node-setup-unsuccess.png)
+![unsuccesss](https://i.loli.net/2020/04/01/f8qywCDkScLIR4u.png)
 
 应该使用 `nvm alias stable v8.17.0`命令解决
 

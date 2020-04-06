@@ -1,6 +1,8 @@
 ---
 title: Weekly-01
 date: 2020-04-04 13:09:45
+categories:
+- weekly
 tags:
 - weekly
 

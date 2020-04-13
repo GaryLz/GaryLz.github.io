@@ -1,6 +1,8 @@
 ---
 title: {{ title }}
 date: {{ date }}
+categories:
+- weekly
 tags:
 - weekly
 
@@ -10,7 +12,7 @@ tags:
 
 >Credits: The main news sources is from *The Economist Magazine(US edition)*. ONLY FOR INDIVIDUAL USAGE.
 
-[toc]
+
 
 ### Politics
 

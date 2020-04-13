@@ -29,5 +29,6 @@
     "hexo-server": "^0.3.3",
     "hexo-symbols-count-time": "^0.7.1",
     "package.json": "^2.0.1"
-  }
+  },
+  "devDependencies": {}
 }

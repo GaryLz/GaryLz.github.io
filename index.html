@@ -1,254 +1,1260 @@
 <!DOCTYPE html>
 <html lang="zh_Han, en">
-  <head><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"garylz.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-<meta name="description" content="Digest, Reflection, Sharing"/><meta name="keywords" content="Garden,Garage,Lab..." /><link rel="alternate" href="/atom.xml" title="GaryLz"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://yoursite.com/"/>
+  <meta property="og:type" content="website">
+<meta property="og:title" content="GaryLz">
+<meta property="og:url" content="https://garylz.com/index.html">
+<meta property="og:site_name" content="GaryLz">
+<meta property="article:author" content="Garylz">
+<meta name="twitter:card" content="summary">
 
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+<link rel="canonical" href="https://garylz.com/">
 
-<script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh_Han, en'
+  };
 </script>
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
-</script>
 
-    <title>GaryLz</title>
-  <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="GaryLz" type="application/atom+xml">
+  <title>GaryLz</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="GaryLz" type="application/atom+xml">
 </head>
 
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">GaryLz</a>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GaryLz</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">keep curiosity as a child</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list"><a href="/">
-        <li class="mobile-menu-item">首页
-          </li>
-      </a></ul>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
 </nav>
-<div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">GaryLz</a>
+
+
+
+
 </div>
-
-<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
-          <a class="menu-item-link" href="/">
-            首页
-            </a>
-        </li>
-      </ul></nav>
-</header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content"><section id="posts" class="posts"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2020/03/16/Node.js-setup-on-Mac/">Node.js-setup-on-Mac</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2020-03-16
-        </span></div>
     </header>
 
-    <div class="post-content"><h1 id="Node-js-Setup-on-Mac"><a href="#Node-js-Setup-on-Mac" class="headerlink" title="Node.js Setup on Mac"></a>Node.js Setup on Mac</h1><blockquote>
-<p>昨天晚上，受够去年装乱七八糟的Node.js, 打算重装了Node.js。虽然这过程里也有点波折。</p>
-<p>记录以警示后来人少走弯路。</p>
-</blockquote>
-<p>整个流程是这样子滴。</p>
-<p>nvm(Homebrew) -&gt; node(npm) -&gt; hero-cli</p>
-          <div class="read-more">
-            <a href="/2020/03/16/Node.js-setup-on-Mac/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2020/03/16/hexo-backup/">hexo-backup</a>
-        </h1>
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2020-03-16
-        </span></div>
-    </header>
 
-    <div class="post-content"><h1 id="hexo-backup-amp-restore"><a href="#hexo-backup-amp-restore" class="headerlink" title="hexo backup &amp; restore"></a>hexo backup &amp; restore</h1><blockquote>
-<p>项目初衷：我们想要解决在不同电脑上都能维护博客或配置、发布的内容丢失可恢复的问题。</p>
-<p>这篇文章“鸽”了有很长一段时间, 昨天晚上刚好mac-pro重装node.js，顺便走了一遍-恢复hexo博客。</p>
-</blockquote>
-<p>blog-backup， 主要分为三部分: 备份到github上托管， 安装配置Node.js，恢复博客。</p>
-          <div class="read-more">
-            <a href="/2020/03/16/hexo-backup/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2020/03/14/2020/">2020</a>
-        </h1>
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-      <div class="post-meta">
-        <span class="post-time">
-          2020-03-14
-        </span></div>
-    </header>
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/05/17/weekly-03/">
 
-    <div class="post-content"><h2 id="2020送给自己的第一句话"><a href="#2020送给自己的第一句话" class="headerlink" title="2020送给自己的第一句话"></a>2020送给自己的第一句话</h2><blockquote>
-<p>2020， 注定是未来十年中绝不平常的一年</p>
-</blockquote>
-<p>从2019， 再到2020，一年过去了。</p>
-          <div class="read-more">
-            <a href="/2020/03/14/2020/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/04/03/How-Do-I-Love-Thee/">How Do I Love Thee</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-04-03
-        </span></div>
-    </header>
-
-    <div class="post-content"><h2 id="How-Do-I-Love-Thee"><a href="#How-Do-I-Love-Thee" class="headerlink" title="How Do I Love Thee"></a>How Do I Love Thee</h2><blockquote>
-<p><em>written by Elizabeth Barrett Browning</em></p>
-</blockquote>
-<p>How do I love thee?</p>
-<p>Let me count the ways.</p>
-          <div class="read-more">
-            <a href="/2019/04/03/How-Do-I-Love-Thee/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/03/23/Charlie-s-Last-Letter/">Charlie's Last Letter</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-23
-        </span></div>
-    </header>
-
-    <div class="post-content"><h2 id="Charlie’s-Last-Letter"><a href="#Charlie’s-Last-Letter" class="headerlink" title="Charlie’s Last Letter"></a>Charlie’s Last Letter</h2><blockquote>
-<p>from MOVIE <em>The Perks Of Being A Wallflower</em></p>
-</blockquote>
-<p>I don’t know if I will have the time to write any more letters.</p>
-<p>Because I might be too busy trying to paticipate.</p>
-          <div class="read-more">
-            <a href="/2019/03/23/Charlie-s-Last-Letter/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/03/19/Algorithms-of-dynamic-Sequential-List/">Algorithms of dynamic Sequential List</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-19
-        </span></div>
-    </header>
-
-    <div class="post-content"><h2 id="线性表顺序结构-动态"><a href="#线性表顺序结构-动态" class="headerlink" title="线性表顺序结构-动态"></a>线性表顺序结构-动态</h2><h3 id="to-declare"><a href="#to-declare" class="headerlink" title="to declare"></a>to declare</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_INIT_SIZE 10;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_INCREMENT 5;</span></span><br><span class="line"><span class="comment">//array can't apply for a new capacity</span></span><br><span class="line"><span class="comment">//once it was defined.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    DataList *data;</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    <span class="keyword">int</span> datasize <span class="comment">//to note the current capacity that has been occupied.</span></span><br><span class="line">                <span class="comment">// to judge if apply for a new capacity if it's full.   </span></span><br><span class="line">&#125; SeqList</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/03/19/Algorithms-of-dynamic-Sequential-List/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/03/17/English-Reviews/">EnglishReviews</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-17
-        </span></div>
-    </header>
-
-    <div class="post-content"><h3 id="English-catalogue"><a href="#English-catalogue" class="headerlink" title="English catalogue"></a>English catalogue</h3>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/03/17/%E5%A9%B4%E5%84%BF%E7%9A%84%E5%88%9D%E5%95%BC/">婴儿的初啼</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-17
-        </span></div>
-    </header>
-
-    <div class="post-content"><h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!!"></a>Hello world!!</h1><p>I’m here writing the first post on my blog site.<br>…</p>
-<p>好激动呀…OMG…                </p>
-
-        </div></article>
-      <nav class="pagination"></nav></section></div></div>
-      </main>
-
-      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://github.com/ahonn" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
-        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    </div><div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
-  </span>
-
-  <span class="copyright-year">&copy;2015 - 2020<span class="heart">
-      <i class="iconfont icon-heart"></i>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
     </span>
-    <span class="author">Gary.Leung</span>
-  </span>
-</div>
-</footer>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/17/weekly-03/" class="post-title-link" itemprop="url">weekly-03</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-17 10:03:00" itemprop="dateCreated datePublished" datetime="2020-05-17T10:03:00+08:00">2020-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/weekly/" itemprop="url" rel="index"><span itemprop="name">weekly</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Weekly-03"><a href="#Weekly-03" class="headerlink" title="Weekly-03"></a>Weekly-03</h1><blockquote>
+<p>Credits: The main news sources is from <em>The Economist Magazine(US edition)</em>. ONLY FOR INDIVIDUAL USAGE.</p>
+</blockquote>
+<p><strong>Issue: <u>May.15,2020</u></strong> </p>
+<p>All are seeking for a back-to-work plan now. </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/17/weekly-03/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/05/13/No-Programmer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/13/No-Programmer/" class="post-title-link" itemprop="url">No-Programmer</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-13 14:23:43" itemprop="dateCreated datePublished" datetime="2020-05-13T14:23:43+08:00">2020-05-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>181</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="不想一辈子当码农！！"><a href="#不想一辈子当码农！！" class="headerlink" title="不想一辈子当码农！！"></a>不想一辈子当码农！！</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/13/No-Programmer/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/04/26/youth/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/26/youth/" class="post-title-link" itemprop="url">youth</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-26 18:17:39" itemprop="dateCreated datePublished" datetime="2020-04-26T18:17:39+08:00">2020-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>56</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我们现在最大的资本就是</p>
+<p>——<strong>年轻</strong>，</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/26/youth/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/04/22/babble/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/22/babble/" class="post-title-link" itemprop="url">babble</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-22 19:55:50" itemprop="dateCreated datePublished" datetime="2020-04-22T19:55:50+08:00">2020-04-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>169</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="闲言絮语"><a href="#闲言絮语" class="headerlink" title="闲言絮语"></a>闲言絮语</h1><blockquote>
+<p>人们经常高估一天能做的事，却经常低估一年能做的事。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/22/babble/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/04/13/Weekly-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/13/Weekly-02/" class="post-title-link" itemprop="url">Weekly-02</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-13 18:42:00" itemprop="dateCreated datePublished" datetime="2020-04-13T18:42:00+08:00">2020-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/weekly/" itemprop="url" rel="index"><span itemprop="name">weekly</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Weekly-02"><a href="#Weekly-02" class="headerlink" title="Weekly-02"></a>Weekly-02</h1><blockquote>
+<p>Credits: The main news sources is from <em>The Economist Magazine(US edition)</em>. ONLY FOR INDIVIDUAL USAGE.</p>
+</blockquote>
+<p><strong>Issue: <u>April.11,2020</u></strong></p>
+<p>This week is another vanilla and bland one.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/13/Weekly-02/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/04/06/setup-on-clash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/06/setup-on-clash/" class="post-title-link" itemprop="url">setup-on-clash</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-06 17:52:33" itemprop="dateCreated datePublished" datetime="2020-04-06T17:52:33+08:00">2020-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/setups/" itemprop="url" rel="index"><span itemprop="name">setups</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Setup-on-clash"><a href="#Setup-on-clash" class="headerlink" title="Setup on clash"></a>Setup on clash</h1><blockquote>
+<p>I super Love the cat logo for <code>clash</code> app. </p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/04/06/Xs37eyd2uoVZMip.png" alt="image-20200406181607926"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/06/setup-on-clash/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/04/06/Apps-on-my-Mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/06/Apps-on-my-Mac/" class="post-title-link" itemprop="url">Apps-on-my-Mac</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-06 17:12:09" itemprop="dateCreated datePublished" datetime="2020-04-06T17:12:09+08:00">2020-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/setups/" itemprop="url" rel="index"><span itemprop="name">setups</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>997</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Apps-on-my-Mac"><a href="#Apps-on-my-Mac" class="headerlink" title="Apps on my Mac"></a>Apps on my Mac</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/06/Apps-on-my-Mac/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/04/05/To-my-naive-self/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/05/To-my-naive-self/" class="post-title-link" itemprop="url">To-my-naive-self</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-05 13:14:13" itemprop="dateCreated datePublished" datetime="2020-04-05T13:14:13+08:00">2020-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>173</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="To-my-naive-self"><a href="#To-my-naive-self" class="headerlink" title="To my naive self"></a>To my naive self</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/05/To-my-naive-self/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/04/04/Weekly-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/04/Weekly-01/" class="post-title-link" itemprop="url">Weekly-01</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-04 13:09:45" itemprop="dateCreated datePublished" datetime="2020-04-04T13:09:45+08:00">2020-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 09:57:48" itemprop="dateModified" datetime="2021-06-19T09:57:48+08:00">2021-06-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/weekly/" itemprop="url" rel="index"><span itemprop="name">weekly</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Weekly-01"><a href="#Weekly-01" class="headerlink" title="Weekly-01"></a>Weekly-01</h1><blockquote>
+<p>This column is founded for world news records every week. </p>
+<p>Credits: The main news sources is from <em>The Economist Magazine(US edition)</em>. ONLY FOR INDIVIDUAL USAGE.</p>
+</blockquote>
+<p><strong>Issue: <u>Apr.4th,2020</u></strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/04/Weekly-01/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_Han, en">
+    <link itemprop="mainEntityOfPage" href="https://garylz.com/2020/03/18/Tips-Copying-SSH-Keys-to-Servers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Garylz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GaryLz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/18/Tips-Copying-SSH-Keys-to-Servers/" class="post-title-link" itemprop="url">Tips.Copying-SSH-Keys-to-Servers</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-18 00:16:22" itemprop="dateCreated datePublished" datetime="2020-03-18T00:16:22+08:00">2020-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-02 01:12:41" itemprop="dateModified" datetime="2020-04-02T01:12:41+08:00">2020-04-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/routine/" itemprop="url" rel="index"><span itemprop="name">routine</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>704</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Tips-for-Copying-SSH-keys-to-Servers"><a href="#Tips-for-Copying-SSH-keys-to-Servers" class="headerlink" title="Tips for Copying SSH keys to Servers"></a>Tips for Copying SSH keys to Servers</h1><blockquote>
+<p>While remotely connecting servers via <code>ssh</code> protocol, I bet, many of us would get as annoyed as like me by the prompt to type in password for verification.</p>
+</blockquote>
+<p>To be frank, those mechanism of this do is good for better safety, however, this also disburbs me a lot, especially for those who often access remote machine over ssh on their PCs. In that case, there is NO NEED to waste so much time and energy on such an unnecessary step.</p>
+<p>Hence, how do we directly access our remote servers without any keys type-in via ssh?</p>
+<hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/18/Tips-Copying-SSH-Keys-to-Servers/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
       </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Garylz</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Garylz</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">21k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">19 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>

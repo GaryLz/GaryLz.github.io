@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>2020</title>
+    <url>/2020/03/14/2020/</url>
+    <content><![CDATA[<h2 id="2020送给自己的第一句话"><a href="#2020送给自己的第一句话" class="headerlink" title="2020送给自己的第一句话"></a>2020送给自己的第一句话</h2><blockquote>
+<p>2020， 注定是未来十年中绝不平常的一年</p>
+</blockquote>
+<p>从2019， 再到2020，一年过去了。</p>
+<a id="more"></a>
+
+<p>个人也非常感慨——</p>
+<p>自己，从一个啥事都非常好奇，凭着一腔热情瞎折腾，再到现在，凡事思前想后，生怕走错路的自己。</p>
+<p>那年的热情不在，只留下苍白无力的现实。</p>
+<p>2020年，开局不利。Cornorvirus outbreak, market crash, Kobe Bryant passed away, so on…</p>
+<p>Maybe I could be one of the jobless.(the US is in the best of the history, or China is stuck in economy slowdown.)</p>
+<p><strong><u>So sad but that is life.</u></strong></p>
+]]></content>
+      <tags>
+        <tag>msg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Algorithms of dynamic Sequential List</title>
+    <url>/2019/03/19/Algorithms-of-dynamic-Sequential-List/</url>
+    <content><![CDATA[<h2 id="线性表顺序结构-动态"><a href="#线性表顺序结构-动态" class="headerlink" title="线性表顺序结构-动态"></a>线性表顺序结构-动态</h2><h3 id="to-declare"><a href="#to-declare" class="headerlink" title="to declare"></a>to declare</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_INIT_SIZE 10;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_INCREMENT 5;</span></span><br><span class="line"><span class="comment">//array can't apply for a new capacity</span></span><br><span class="line"><span class="comment">//once it was defined.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    DataList *data;</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    <span class="keyword">int</span> datasize <span class="comment">//to note the current capacity that has been occupied.</span></span><br><span class="line">                <span class="comment">// to judge if apply for a new capacity if it's full.   </span></span><br><span class="line">&#125; SeqList</span><br></pre></td></tr></table></figure>
+
+
+
+<a id="more"></a>
+
+
+
+<h4 id="1-to-initialize"><a href="#1-to-initialize" class="headerlink" title="1. to initialize"></a>1. to initialize</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">initList</span><span class="params">(SeqList &amp;L)</span></span>&#123;</span><br><span class="line"><span class="comment">//initialize memory allocation</span></span><br><span class="line">    L.data = (DataList*)molloc(LIST_INIT_SIZE * <span class="keyword">sizeof</span>(DataList));</span><br><span class="line">    <span class="keyword">if</span>(!L.data)</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    L.length = <span class="number">0</span>;</span><br><span class="line">    L.datasize = LIST_INIT_SIZE;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//succeeded   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-to-destroy-all-of-member-variables-and-recycle"><a href="#2-to-destroy-all-of-member-variables-and-recycle" class="headerlink" title="2. to destroy all of member variables and recycle"></a>2. to destroy all of member variables and recycle</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">destroyList</span><span class="params">(SeqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="built_in">free</span>(L.data);</span><br><span class="line">    L.length = <span class="number">0</span>;</span><br><span class="line">    L.datasize = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3-to-recycle"><a href="#3-to-recycle" class="headerlink" title="3. to recycle"></a>3. to recycle</h4><p>the process is <em>the same</em> as the above</p>
+<h4 id="4-to-check-if-it’s-empty"><a href="#4-to-check-if-it’s-empty" class="headerlink" title="4. to check if it’s empty"></a>4. to check if it’s empty</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">checkEmpty</span><span class="params">(SeqList L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !(L.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-to-get-the-length-of-the-list"><a href="#5-to-get-the-length-of-the-list" class="headerlink" title="5. to get the length of the list"></a>5. to get the length of the list</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLength</span><span class="params">(SeqList L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> L.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-to-return-the-value-of-the-n-th-element"><a href="#6-to-return-the-value-of-the-n-th-element" class="headerlink" title="6. to return the value of the n-th element"></a>6. to return the value of the n-th element</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">DataList <span class="title">getElem</span><span class="params">(SeqList L, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( n &lt; <span class="number">1</span> || n &gt; L.length )</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//you also can only consider the feasible situation</span></span><br><span class="line">    <span class="keyword">return</span> (*(L.data+i<span class="number">-1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-to-return-the-index-AKA-situation-of-the-given-number"><a href="#7-to-return-the-index-AKA-situation-of-the-given-number" class="headerlink" title="7. to return the index(AKA situation) of the given number"></a>7. to return the index(AKA situation) of the given number</h4><p>if it’s in the list, if succeed return 1, or return 0</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLocation</span><span class="params">(SeqList L, <span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( data &amp;&amp; L.length != <span class="number">0</span> )&#123; <span class="comment">//to ensure that pointer(data) or the list is not NULL</span></span><br><span class="line">        <span class="keyword">int</span> j;<span class="comment">//default j=0;</span></span><br><span class="line">        <span class="comment">// to check if that given number is in the list</span></span><br><span class="line">        <span class="keyword">while</span> ( j &lt; L.length &amp;&amp; num != (*(data+j) )</span><br><span class="line">            j++;</span><br><span class="line">        <span class="keyword">if</span> ( j != L.length)</span><br><span class="line">            <span class="keyword">return</span> j;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-to-get-the-value-of-its-immediate-successor"><a href="#8-to-get-the-value-of-its-immediate-successor" class="headerlink" title="8. to get the value of its immediate successor"></a>8. to get the value of its immediate successor</h4><p>if it exits by giving values</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">DataList <span class="title">getI_suc</span><span class="params">(SeqList L, DataList values )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( data &amp;&amp; L.length != <span class="number">0</span> )&#123;</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">while</span> ( j &lt; L.length<span class="number">-1</span> &amp;&amp; values != (*(L.data+j)))</span><br><span class="line">            j++;</span><br><span class="line">        <span class="keyword">if</span> ( j ! = L.length<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> (*(L.data+j+<span class="number">1</span>));</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-to-get…the-value-of-its-predecessor"><a href="#9-to-get…the-value-of-its-predecessor" class="headerlink" title="9. to get…the value of its predecessor"></a>9. to get…the value of its predecessor</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">DataList <span class="title">getI_prede</span><span class="params">(SeqList L, DataList value)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( L.data &amp;&amp; L.length != <span class="number">0</span> )&#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> ( j &lt; L.length &amp;&amp; values != (*(L.data+j)))</span><br><span class="line">            j++;</span><br><span class="line">        <span class="keyword">if</span> ( j != L.length )</span><br><span class="line">            <span class="keyword">return</span> (*(L.data+j<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-ATTENTION"><a href="#10-ATTENTION" class="headerlink" title="10. ATTENTION"></a>10. <em>ATTENTION</em></h4><p><strong>insert a given value before an expected element of the list</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">insertBef</span><span class="params">(SeqList &amp;L, DataList value, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">    <span class="comment">//need to note here, applying for a new room for the value if feasible**</span></span><br><span class="line">    <span class="keyword">if</span> ( !L.data || L.length = <span class="number">0</span> || i &lt; <span class="number">1</span> || i &gt; L.length )</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;      </span><br><span class="line">        DataList  *newbase, *q, *p; <span class="comment">//p,q that two being used into operation of putting backward other elements  </span></span><br><span class="line">        <span class="comment">//need to note here - function remolloc() just change its memory size(AKA resize the memory block), doesn't change its values that inside the original memory. </span></span><br><span class="line">        <span class="comment">//check if the block of memory is full now</span></span><br><span class="line">        <span class="keyword">if</span> ( L.length == L.datasize )&#123; <span class="comment">//L.length --&gt; means the size of memory using now</span></span><br><span class="line">        newbase = (DataList*)remolloc(L.data, (L.datasize + LIST_INCREMENT)*(<span class="keyword">sizeof</span>(DataList)));</span><br><span class="line">        <span class="comment">//apply for room for value to be saved</span></span><br><span class="line">        <span class="comment">//what if failing to allocate the requested memory block, a null pointer is returned</span></span><br><span class="line">        <span class="comment">//appendix - dereference means “取指针所指向的对象的值” in Chinese. (AKA star sign(*))</span></span><br><span class="line">        <span class="keyword">if</span> ( !newbase )</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);  <span class="comment">//terminate in advance ##reallyUsefulTrick##</span></span><br><span class="line">        <span class="comment">//on success</span></span><br><span class="line">        L.datasize += LIST_INCREMENT;</span><br><span class="line">        L.data = newbase;  <span class="comment">//new address</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//expected element and those behind need to move backwards,</span></span><br><span class="line">        <span class="comment">//the process starts with the last one.</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//<span class="doctag">NOTE:</span> why need two pointers like p, q.</span></span><br><span class="line">        <span class="comment">// because all elements need being pointed by pointers.</span></span><br><span class="line">        <span class="comment">//so, we need two to deal with the process of offering a room for that value waiting to insert</span></span><br><span class="line">        <span class="comment">// and one of both to point that empty room</span></span><br><span class="line">        q = L.data+i<span class="number">-1</span>; <span class="comment">//let the pointer q point to that room(by passing on the address)</span></span><br><span class="line">        <span class="keyword">for</span> ( p = L.data+L.length<span class="number">-1</span>; p &gt; i; --p )&#123;</span><br><span class="line">            *(p+<span class="number">1</span>) = *p; <span class="comment">//moving back a room   </span></span><br><span class="line">        &#125;<span class="comment">//on success, it can't be oversized.</span></span><br><span class="line">        *q = value;</span><br><span class="line">        <span class="comment">//don't forget add up its length.</span></span><br><span class="line">        ++L.length;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;   </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-to-delete-an-expected-element-of-the-list"><a href="#11-to-delete-an-expected-element-of-the-list" class="headerlink" title="11. to delete an expected element of the list,"></a>11. to delete an expected element of the list,</h4><pre><code>if done return 1; or return 0.</code></pre><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">delete_elem</span><span class="params">(SeqList &amp;L; <span class="keyword">int</span> s_num)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!L.data || L.length == <span class="number">0</span> || s_num &lt; <span class="number">1</span>; s_num &gt; L.length)</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    DataList *p;</span><br><span class="line">    <span class="keyword">if</span> ( p = L.data+s_num; p &lt; L.data+L.length<span class="number">-1</span>; ++p)&#123;</span><br><span class="line">        *(p<span class="number">-1</span>) = *p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//on suceess</span></span><br><span class="line">    --L.length;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Reflection-A-BIG-highlight"><a href="#Reflection-A-BIG-highlight" class="headerlink" title="Reflection: A BIG-highlight"></a>Reflection: A BIG-highlight</h3><h4 id="the-difference-between-i-and-i"><a href="#the-difference-between-i-and-i" class="headerlink" title="the difference between ++i and i++;"></a>the difference between ++i and i++;</h4><blockquote>
+<p>it’s mainly about the order of operations<br>for a ‘for’ loop, either works<br>but prefix(pre increment)seems more common<br>because you won’t go wrong using it.<br>but<br>like post increment(AKA suffix/postfix)<br>it’s more like, it returns the original value that it held before being incremented.</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>seqList</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Apps-on-my-Mac</title>
+    <url>/2020/04/06/Apps-on-my-Mac/</url>
+    <content><![CDATA[<h1 id="Apps-on-my-Mac"><a href="#Apps-on-my-Mac" class="headerlink" title="Apps on my Mac"></a>Apps on my Mac</h1><a id="more"></a>
+
+<h3 id="Prod"><a href="#Prod" class="headerlink" title="Prod."></a>Prod.</h3><ul>
+<li><p>Typora</p>
+<blockquote>
+<p>Markdown神器</p>
+</blockquote>
+</li>
+<li><p>Evernote</p>
+<blockquote>
+<p>摘抄笔记，收藏条目</p>
+</blockquote>
+</li>
+<li><p>Notion</p>
+<blockquote>
+<p>项目管理，团队计划</p>
+</blockquote>
+</li>
+<li><p>uPic</p>
+<blockquote>
+<p>免费图床uploader，与sm.ms免费图床结合使用</p>
+</blockquote>
+</li>
+<li><p>CleanMyMac</p>
+<blockquote>
+<p>日常电脑管理helper, deal with routines</p>
+</blockquote>
+</li>
+<li><p>HazeOver</p>
+<blockquote>
+<p>小遮罩，专注手上的活。层次感。</p>
+</blockquote>
+</li>
+<li><p>Fantastical 2</p>
+<blockquote>
+<p>桌面看日期，规划提醒</p>
+</blockquote>
+</li>
+<li><p>Artpaper</p>
+<blockquote>
+<p>喜欢古典壁纸，爱好google <code>Arts&amp;Culture</code>里面的名作。培养艺术感。</p>
+</blockquote>
+</li>
+<li><p>Noizio</p>
+<blockquote>
+<p>白噪音 white noise</p>
+</blockquote>
+</li>
+<li><p>Zoom</p>
+<blockquote>
+<p>group video</p>
+</blockquote>
+</li>
+<li><p>Tuxera Disk Manager</p>
+<blockquote>
+<p>NTFS for Mac： MacOS上一个头疼的缺点</p>
+</blockquote>
+</li>
+<li><p>Paste</p>
+<blockquote>
+<p>clipboard管理，同时，能够集中颜色参数。神器。</p>
+</blockquote>
+</li>
+<li><p>Vanilla</p>
+<blockquote>
+<p>管理右上角的bar小图标, 头疼。</p>
+</blockquote>
+</li>
+<li><p>Spectale</p>
+<blockquote>
+<p>程序窗口大小管理</p>
+</blockquote>
+</li>
+<li><p>Alfred 4</p>
+<blockquote>
+<p>全能版的spotlight， Mac不能不备的软件之一</p>
+</blockquote>
+</li>
+<li><p>The Unarchiver</p>
+<blockquote>
+<p>压缩解压，简单，只需要鼠标轻轻左点一下</p>
+</blockquote>
+</li>
+<li><p>eZip</p>
+<blockquote>
+<p>同上，只不过能选择自定义解压位置</p>
+</blockquote>
+</li>
+<li><p>Downie</p>
+<blockquote>
+<p>爬视频必备</p>
+</blockquote>
+</li>
+<li><p>Permute</p>
+<blockquote>
+<p>比较万能的格式转化</p>
+</blockquote>
+</li>
+<li><p>CheatSheet</p>
+<blockquote>
+<p>辅助工具，如果忘记某一个快捷键</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><ul>
+<li><p>ShadowsocksX-NG-R8</p>
+</li>
+<li><p>V2rayU</p>
+</li>
+<li><p>ClashXR</p>
+<blockquote>
+<p>比较全能</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><ul>
+<li><p>CodeRunner3</p>
+<blockquote>
+<p>懒人包，实现想法。轻量</p>
+</blockquote>
+</li>
+<li><p>Visual Studio Code</p>
+<blockquote>
+<p>插件库真多，比xcode高到哪里去</p>
+</blockquote>
+</li>
+<li><p>Sublime Text 3 </p>
+<blockquote>
+<p>json, yaml等格式，轻量</p>
+</blockquote>
+</li>
+<li><p>iTerm2</p>
+<blockquote>
+<p>Terminal的替代品，虽然我并没有找到什么比原生更出色的一点。可能是UI好看吧。</p>
+</blockquote>
+</li>
+<li><p>Docker</p>
+<blockquote>
+<p>人生苦短，docker是逃不了的。 摆脱一些无意义而又磨人的配置环境问题。</p>
+</blockquote>
+</li>
+<li><p>Xcode</p>
+<blockquote>
+<p>官方钦点御用开发工具。稍强一点的操作，都需要开发工具包。其实 <code>xcode --command install</code>安装个xcode工具包就行了。用不着下个6-8G的大型IDE    </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Entertainment"><a href="#Entertainment" class="headerlink" title="Entertainment"></a>Entertainment</h3><ul>
+<li><p>Netflix</p>
+<blockquote>
+<p>啥都不说，Netflix牛逼。世界流媒体大工厂。最近看韩剧有点疯。</p>
+</blockquote>
+</li>
+<li><p>YYets</p>
+<blockquote>
+<p>一杯酒敬给我的懵懂少年青春。感谢有你，人人字幕组。来日再见。</p>
+</blockquote>
+</li>
+<li><p>Spotify</p>
+<blockquote>
+<p>有点厌烦网易云，听歌想纯粹些。</p>
+</blockquote>
+</li>
+<li><p>Netease Music 网易云</p>
+</li>
+<li><p>IINA</p>
+<blockquote>
+<p>个人觉得最好的视频播放器。开源第三方，免费好用。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Chat"><a href="#Chat" class="headerlink" title="Chat"></a>Chat</h3><ul>
+<li><p>telegram</p>
+<blockquote>
+<p>电报。</p>
+</blockquote>
+</li>
+<li><p>Wechat</p>
+<blockquote>
+<p>无感。但不得不用。</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>setups</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Charlie&#39;s Last Letter</title>
+    <url>/2019/03/23/Charlie-s-Last-Letter/</url>
+    <content><![CDATA[<h2 id="Charlie’s-Last-Letter"><a href="#Charlie’s-Last-Letter" class="headerlink" title="Charlie’s Last Letter"></a>Charlie’s Last Letter</h2><blockquote>
+<p>from MOVIE <em>The Perks Of Being A Wallflower</em></p>
+</blockquote>
+<p>I don’t know if I will have the time to write any more letters.</p>
+<p>Because I might be too busy trying to paticipate.</p>
+<a id="more"></a>
+
+
+<p>So, it this does end up being the last letter.</p>
+<p>I just want to tell you that </p>
+<p>I was in a bad place before I started high school</p>
+<p>And you helped me.</p>
+<p>Even if you didn’t know what I was talking about </p>
+<p>or know someone who’s gone through it</p>
+<p>And it made me not feel alone.</p>
+<p>Because I know there’re people </p>
+<p>who say all these things don’t happen</p>
+<p>there’re people </p>
+<p><em>who forget what it’s like to be 16<br>when they turn 17.</em></p>
+<p>I know these will be all stories someday,</p>
+<p>And our picutures will become old photograph,s</p>
+<p>And we all will become someone’s mom or dad.</p>
+<p>But right now,</p>
+<p>these moments are not stories.</p>
+<p>This is happening.</p>
+<p>I’m here, </p>
+<p>and I’m looking at her.</p>
+<p>And she’s so beautiful.</p>
+<p>…</p>
+<p>I can see it,</p>
+<p>the one moment when you know you are not a sad stories,</p>
+<p>You’re alive.</p>
+<p>And you stand up and look at the lights on the building</p>
+<p>and everything that makes you wonder.</p>
+<p>And you were listening to that song on that drive with people you love most in this world.</p>
+<p>And in this moment,</p>
+<p>I swear,</p>
+<p>We are infinite.</p>
+]]></content>
+      <categories>
+        <category>poetry</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>EnglishReviews</title>
+    <url>/2019/03/17/English-Reviews/</url>
+    <content><![CDATA[<h3 id="English-catalogue"><a href="#English-catalogue" class="headerlink" title="English catalogue"></a>English catalogue</h3>]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How Do I Love Thee</title>
+    <url>/2019/04/03/How-Do-I-Love-Thee/</url>
+    <content><![CDATA[<h2 id="How-Do-I-Love-Thee"><a href="#How-Do-I-Love-Thee" class="headerlink" title="How Do I Love Thee"></a>How Do I Love Thee</h2><blockquote>
+<p><em>written by Elizabeth Barrett Browning</em></p>
+</blockquote>
+<p>How do I love thee?</p>
+<p>Let me count the ways.</p>
+<a id="more"></a>
+
+<p>I love Thee to the depth and breath and height my Soul can reach,<br>when feeling out of Sight, for the ends of Being and ideal Grace.</p>
+<p>I love thee to the level of everyday’s Most quiet need, by sun and candlelight.</p>
+<p>I love thee freely, as men strive for Right;</p>
+<p>I love thee purely, as they turn from Praise.</p>
+<p>I love thee with the Passion put to use in my old griefs, and with my childhood’s faith.</p>
+<p>I love thee with a love I seemed to lose with my lost saints,</p>
+<p>I love thee with the breath, smiles, tears, of all my life </p>
+<p>and, if God choose, I shall but love thee better after death.</p>
+<blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>poetry</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>No-Programmer</title>
+    <url>/2020/05/13/No-Programmer/</url>
+    <content><![CDATA[<h3 id="不想一辈子当码农！！"><a href="#不想一辈子当码农！！" class="headerlink" title="不想一辈子当码农！！"></a>不想一辈子当码农！！</h3><a id="more"></a>
+
+<p>趁年轻，还能学，</p>
+<p>多学一些艰深枯躁的知识，</p>
+<p>多看papers，时髦点。</p>
+<p>不要老是纠结在语言，API那些低级方面，</p>
+<p>人家不想一辈子当码农！！！</p>
+<p>已经入这行了，<br>多多少少也得花点精力在这上面吧。<br>四分CS，三分兴趣爱好，两分语言翻译，一分其他</p>
+<p>其实CS这行，<br>很像语言翻译，<br>无非就是把你脑中的想法，<br>翻译成机器能看懂，帮你实现的程序。</p>
+<p><u>这难道不是就是另一种交流方式吗？</u></p>
+]]></content>
+      <tags>
+        <tag>msg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node.js-setup-on-Mac</title>
+    <url>/2020/03/16/Node.js-setup-on-Mac/</url>
+    <content><![CDATA[<h1 id="Node-js-Setup-on-Mac"><a href="#Node-js-Setup-on-Mac" class="headerlink" title="Node.js Setup on Mac"></a>Node.js Setup on Mac</h1><blockquote>
+<p>昨天晚上，受够去年装乱七八糟的Node.js, 打算重装了Node.js。虽然这过程里也有点波折。</p>
+<p>记录以警示后来人少走弯路。</p>
+</blockquote>
+<p>整个流程是这样子滴。</p>
+<p>nvm(Homebrew) -&gt; node(npm) -&gt; hero-cli</p>
+<a id="more"></a>
+
+<p>大致分为三步走。如果你用Mac没装Homebrew,那请上 <u><a href="https://brew.sh/" target="_blank" rel="noopener">homebrew官网安装</a></u></p>
+<blockquote>
+<p>Friendly-note: </p>
+<p>由于这片土地的特殊性，以及防止遇到一些奇奇乖乖的出错，最好自备科学上网环境，以及终端走代理技能。</p>
+</blockquote>
+<p>两个坑：1）brew装nvm，重启终端后nvm失效 2）终端重启后，通过nvm安装的node、npm失效</p>
+<h3 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h3><p>装完<code>homebrew</code>，如果你成功的话。</p>
+<p>安装nvm，十分简单。只需要一句话。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm <span class="comment">#这里会自动执行brew update命令，然后执行该命令。</span></span><br></pre></td></tr></table></figure>
+
+<p>由于外网，update整个过程需要等很久。大概要3-4分钟，甚至更久。所以，耐心等待，切不要重蹈我以前的覆辙，莽断地按下Ctrl+C结束。这会导致很严重的后果—可能再也运行不了brew命令。所以，最好走代理。</p>
+<p>安装成功后，会有一个bug, </p>
+<h4 id="坑1-brew装nvm，重启终端后nvm失效"><a href="#坑1-brew装nvm，重启终端后nvm失效" class="headerlink" title="坑1: brew装nvm，重启终端后nvm失效"></a><strong>坑1: brew装nvm，重启终端后nvm失效</strong></h4><p>brew安装nvm有个bug，安装时缺少了nvm.sh，这会导致每次重启终端，nvm命令就失效了，所以我们要每次运行下面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 复制下面的代码到终端并运行</span><br><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
+
+<p>好了，现在nvm命令已经能被识别了，但是每次重启终端都要运行无疑是很复杂的，所以要在<code>.bash_profile</code>（<code>～/.zshrc</code>）中配置一下，保证每次重启时，系统都能帮我们做一步。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#edit on .bash_profile</span></span><br><span class="line"><span class="comment">#setup NVM_DIR</span></span><br><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"~/.nvm"</span></span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
+
+<p>测试是否成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm -v <span class="comment">#显示版本号</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装node以及配置"><a href="#安装node以及配置" class="headerlink" title="安装node以及配置"></a>安装node以及配置</h3><p>这部分，应该算是最曲折的。</p>
+<h4 id="使用nvm安装node"><a href="#使用nvm安装node" class="headerlink" title="使用nvm安装node"></a>使用nvm安装node</h4><p>安装node,命令依次是</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote <span class="comment"># 查看当前提供node版本号</span></span><br><span class="line">nvm install v8.11.3 <span class="comment"># 自由选择 我选择了stable版本</span></span><br><span class="line"><span class="comment"># 安装完成后就可以查看node和npm的版本了</span></span><br><span class="line">node -v  </span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>npm直接跟着node一起去安装进去，虽然两者没什么依赖关系。</p>
+</blockquote>
+<p>安装过程较慢，特别是安装node,得有耐心等待⌛️</p>
+<h4 id="坑2：终端重启后，通过nvm安装的node、npm失效"><a href="#坑2：终端重启后，通过nvm安装的node、npm失效" class="headerlink" title="坑2：终端重启后，通过nvm安装的node、npm失效"></a><strong>坑2：终端重启后，通过nvm安装的node、npm失效</strong></h4><p>重启终端之后，node和npm也失效了. <strong>不要急着关掉终端！！！</strong></p>
+<p>这是因为nvm没有默认绑定node的版本号，所以要手动绑定一下。</p>
+<p>如果你还没有重启，node和npm命令还有效，那么直接运行下面的命令，如果已经无效，先重新用nvm安装node</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm use v8.11.3 <span class="comment">#设置默认版本号</span></span><br><span class="line"><span class="comment">#绑定默认版本号,稳定版本号</span></span><br><span class="line">nvm <span class="built_in">alias</span> default v8.11.3 </span><br><span class="line">nvm <span class="built_in">alias</span> stable v8.11.3 <span class="comment">#如果下载的不是stable版的话，需要此条命令</span></span><br><span class="line">nvm ls</span><br></pre></td></tr></table></figure>
+
+<p>然后check一下，看到如下截图</p>
+<p><img src="https://i.loli.net/2020/04/01/5cDSYBj4oQsCwl9.png" alt="success"></p>
+<h6 id="例外情况"><a href="#例外情况" class="headerlink" title="例外情况"></a>例外情况</h6><p>Note: 而我的情况，并没有遵循上面所说那样，下载个node稳定版v8.11.3,相反下载了lts/carbon项目最新版，之后就出现没有全绑定问题，即stable版本并没有使用默认版，相反使用node原先预设的v11.3.0。</p>
+<p><img src="https://i.loli.net/2020/04/01/f8qywCDkScLIR4u.png" alt="unsuccesss"></p>
+<p>应该使用 <code>nvm alias stable v8.17.0</code>命令解决</p>
+<p>这样子, node的配置已经完成。</p>
+<h3 id="安装hexo-cli"><a href="#安装hexo-cli" class="headerlink" title="安装hexo-cli"></a>安装hexo-cli</h3><p>一条命令，搞掂。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli <span class="comment">#全局安装</span></span><br></pre></td></tr></table></figure>
+
+<p>不过下载有点慢，建议代理！</p>
+<p>安装完后，check下是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v <span class="comment">#版本信息</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有些人，可能会出现”command not found”的问题。如果安装完成的话，可能就是下到node另一个版本的node-modules文件夹去了。npm下载插件，默认存到当前系统node稳定版上去。所以说，如果出现该问题，最好检查下。(其中，/bin/hexo-二进制可执行文件，即命令。没有它，就会出现”命令不存在”的报错。)</p>
+<p>解决：放回文件的正确位置。尝试把 node-modules/hexo-cli 和 ../bin/hexo 两个全部移入当前使用的node版本去。</p>
+<p>（特别对于那些.nvm/version/文件夹下存在多个node版本的人来说，或者上面node绑定时，没有出现上面三个全绿的截图。) </p>
+</blockquote>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol>
+<li><p><a href="https://segmentfault.com/a/1190000015416829" target="_blank" rel="noopener">segmentfault-一篇文章了解Mac上Node环境配置</a></p>
+</li>
+<li><p><a href="https://mupceet.com/2019/08/build-blog-based-on-hexo/" target="_blank" rel="noopener">Mupceet-Hexo 博客搭建与主题配置（零基础版）</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>setups</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips.Copying-SSH-Keys-to-Servers</title>
+    <url>/2020/03/18/Tips-Copying-SSH-Keys-to-Servers/</url>
+    <content><![CDATA[<h1 id="Tips-for-Copying-SSH-keys-to-Servers"><a href="#Tips-for-Copying-SSH-keys-to-Servers" class="headerlink" title="Tips for Copying SSH keys to Servers"></a>Tips for Copying SSH keys to Servers</h1><blockquote>
+<p>While remotely connecting servers via <code>ssh</code> protocol, I bet, many of us would get as annoyed as like me by the prompt to type in password for verification.</p>
+</blockquote>
+<p>To be frank, those mechanism of this do is good for better safety, however, this also disburbs me a lot, especially for those who often access remote machine over ssh on their PCs. In that case, there is NO NEED to waste so much time and energy on such an unnecessary step.</p>
+<p>Hence, how do we directly access our remote servers without any keys type-in via ssh?</p>
+<hr>
+ <a id="more"></a>
+
+<p>HERE IS THE SOLUTION.</p>
+<p>Just <strong>ONE COMMAND LINE</strong> needed on the first-time access to remote servers with keys.</p>
+<blockquote>
+<p>ssh-copy-id user@hostname -p port </p>
+</blockquote>
+<p> Wait a minute then. Your ssh-keygen public rsa will be copyed to and saved on remote server <code>.ssh/known_hosts</code>. </p>
+<p> Time to enjoy this direct and effortless access later.</p>
+]]></content>
+      <categories>
+        <category>routine</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>To-my-naive-self</title>
+    <url>/2020/04/05/To-my-naive-self/</url>
+    <content><![CDATA[<h2 id="To-my-naive-self"><a href="#To-my-naive-self" class="headerlink" title="To my naive self"></a>To my naive self</h2><a id="more"></a>
+
+<p>我呢，<br>说实在的，<br>一路下来，<br>并没有多出色，<br>但也没有多平庸。<br>曾经也有“优秀”过，<br>只不过对于我这种人，<br>没有多少后路可走，<br>也没有多少选择可选，<br>也没几次允许犯错的机会。 </p>
+<p>毕竟生活在一个不容许“犯错”，<br>或者容错率很小的社会。<br>一步不慎，万丈深渊。<br>人生的轨迹走向，<br>就是由许许多多大大小小的选择所决定的。</p>
+<h3 id="我承认，我害怕犯错"><a href="#我承认，我害怕犯错" class="headerlink" title="我承认，我害怕犯错"></a>我承认，我害怕犯错</h3><p>#今天满满负能量#</p>
+]]></content>
+      <tags>
+        <tag>self</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Weekly-01</title>
+    <url>/2020/04/04/Weekly-01/</url>
+    <content><![CDATA[<h1 id="Weekly-01"><a href="#Weekly-01" class="headerlink" title="Weekly-01"></a>Weekly-01</h1><blockquote>
+<p>This column is founded for world news records every week. </p>
+<p>Credits: The main news sources is from <em>The Economist Magazine(US edition)</em>. ONLY FOR INDIVIDUAL USAGE.</p>
+</blockquote>
+<p><strong>Issue: <u>Apr.4th,2020</u></strong></p>
+<a id="more"></a>
+
+<h3 id="Politics"><a href="#Politics" class="headerlink" title="Politics"></a>Politics</h3><ul>
+<li><p>[哥伦比亚一游击队组织宣布停战一个月，以面对冠状全球疫情。](The ELN, a guerrilla group in <strong>Colomibia</strong>, declared a one-month ceasefire starting from April 1st. It called the decision a “humanitarian gesture” in response to the cover-19 pandemic.)</p>
+</li>
+<li><p><strong>Nothing will stop them</strong>: [即使全球疫情的影响，也门内战仍然继续。](Fighting in <strong>Yemen</strong> continued despite calls for a truce to fight covid-19 instead.)</p>
+</li>
+<li><p>[欧盟各国领导人在loggerleads开会，讨论是否发行「冠状券」，以面对疫情下的经济萎缩的冲击。](European leaders were at loggerheads over the issurance of so-called <strong>coronabonds</strong>, government bonds jointly guaranteed by all countries of the euro zone. )</p>
+</li>
+<li><p>[「英国首相Johnson被冠状病毒检测-阳性」](<strong>Boris Johnson</strong> contracted conoid-19.)</p>
+</li>
+<li><p>[一美国航母舰长向海军求助，帮助处理舰上百名确诊病例。结果，被军方恶令驱逐出舰。](The captain of an American <strong>aircraft-carrier</strong> asked the navy for help following an outbreak of covid-19 on board.)</p>
+</li>
+<li><p>[世界最大避孕套制造商，警告全球避孕套将面临紧缺。有专家预测，全球将会面临新一轮婴儿潮。](The world’s biggest <strong>condom-maker</strong>, warned of a gloabl shartage because it has had to shut factories. Forecasters have already predicted a baby boom because of couples staying at home.)</p>
+</li>
+</ul>
+<h3 id="Business"><a href="#Business" class="headerlink" title="Business"></a>Business</h3><ul>
+<li><p>[全球各股市交易所宣称，今年第一季度是自08年经济危机以来的历史最差一季度。](Many <strong>global markets</strong> recorded their worst quarter since the start of the financial crisis in 2008.)</p>
+</li>
+<li><p>[今年3月份，原油价格已经暴跌55%。90年代以来，历史最低。真的是比“矿泉水价格还便宜”。但很多人认为沙特和俄罗斯的价格战可能将结束，这周原油价格稍微反弹。](The price of <strong>Brent crude oil</strong> plunged by 55% in March, but rose this week amid hopes that Saudi Arabia and Russia might end their price war.)</p>
+</li>
+<li><p>[欧盟央行下达“暂停下发分红”命令，以拥有更多钱发放借贷。](The European Central Bank told banks in the euro zone to suspend <strong>dividend payments</strong> so that they can increase their lending capacity.)</p>
+</li>
+<li><p>[特朗普下达行政命令，通用公司将生产医疗呼吸机，缓解国内呼吸机极度紧缺情况。](Donald Trump ordered General Motors to start making hospital <strong>ventilators</strong>.)</p>
+</li>
+<li><p>[软银停止回购WeWork股票计划。#WeWork凉凉](SoftBank has pulled out of a deal to buy back $3bn-worth of shares from investors in <strong>Wework</strong>.)</p>
+</li>
+<li><p>[瑞幸咖啡自曝，去年公司销售额「造假」近22亿元。股票大跳水75%。](<strong>Luckin coffee</strong> shares plummeted 75% after financial misconduct investigation launched. )</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>weekly</category>
+      </categories>
+      <tags>
+        <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Weekly-02</title>
+    <url>/2020/04/13/Weekly-02/</url>
+    <content><![CDATA[<h1 id="Weekly-02"><a href="#Weekly-02" class="headerlink" title="Weekly-02"></a>Weekly-02</h1><blockquote>
+<p>Credits: The main news sources is from <em>The Economist Magazine(US edition)</em>. ONLY FOR INDIVIDUAL USAGE.</p>
+</blockquote>
+<p><strong>Issue: <u>April.11,2020</u></strong></p>
+<p>This week is another vanilla and bland one.</p>
+<a id="more"></a>
+
+
+
+<h3 id="Politics"><a href="#Politics" class="headerlink" title="Politics"></a>Politics</h3><ul>
+<li><p>英国首相Johnson病情恶化，入ICU观察。「后续：4.13-“乡亲们，俺出院了“」</p>
+</li>
+<li><p>疫情观察：</p>
+<p><u>美国死亡人数继续上升。欧洲可能迎来「转机」，这几天意大利、西班牙以及其他地区，死亡和新增病例呈下滑态势。但是，欧洲仍然是全球疫情最严重的地区。中国武汉4月9日零时“解封”，各地继续进行恢工复产工作。</u></p>
+</li>
+<li><p>中国一地产大亨「任志强」被宣称违法违纪，正在接受党内调查。</p>
+</li>
+<li><p>美国民主党竞选人Sanders正式宣布，退出竞选。基本确定-2020美国总统两党候选人Trump VS. Biden.</p>
+</li>
+<li><p>Biden提出“Vote by Email”的构想。「美国疫情当头，停学不停课，停工不停薪。千万也不要停大选。老子还有未实现的总统梦呢。」</p>
+</li>
+<li><p>「没有最雷，只有更雷」：</p>
+<p>苏格兰「卫生部长」，被曝违反政府禁足令-在封城隔离期间内曾两次离家，之后宣布辞职。</p>
+</li>
+<li><p>一老虎被动物园饲养员传染，被检测出新冠状病毒阳性。「目前没有任何证据宣称-动物可传染人类」</p>
+</li>
+</ul>
+<h3 id="Business"><a href="#Business" class="headerlink" title="Business"></a>Business</h3><ul>
+<li>美国股市终于反弹了。</li>
+<li>伊朗和俄罗斯双方同意「减产计划」。但原油价格由于需求疲软，仍然涨不起来。</li>
+<li>接下来几年会很「痛」，尤其今年，大家都不好过。「活下去！！！」全球500强公司，纷纷被传出减薪裁员，降低年收入预期，砍掉一大半预算开支。英美两国失业保障申领人数，远远超出预期。</li>
+<li>Trump与3M公司达成协议，3M公司承诺会从亚洲各工厂调口罩物资进入美国，缓解国内口罩紧缺问题。</li>
+</ul>
+<hr>
+<p>我想讲讲别的话题——贫富差距，有些人更平等</p>
+<p>本周经济学人-中国专题有两篇报导，特别触动。</p>
+<ul>
+<li>Beekeeping: The honey trap. 讲中国疫情下的养蜂人困境</li>
+<li>CHAGUAN: A Window Almost Closed. 讲新时代下的独立纪录片导演的出路，关注尘肺病的呼吁</li>
+</ul>
+<p>同时结合个人经历，真的感慨——人，生而平等。但是总有些人更平等。</p>
+<p>我和家人趁天气好，到外面转悠一圈。临近中午，回家路上想买两个椰子15块。大叔坐在大货车的车厢上吃饭，一个中年稍偏老的阿姨，很热心帮忙破开椰子。虽然她操着农村口音的普通话，并不懂她说什么，但我还是能感受到她的热心善良。于是，我有点共情，就想——疫情这三个月的折腾，像阿姨大叔这样的家庭，会遭受到怎样预想不到的冲击呢？还有去年非洲猪瘟后的养猪户，现在又怎样了呢？</p>
+<p>其实在吃饭的大叔，我一眼就辨认出，两个月前疫情发生初期，大叔还是在那个地方卖甘蔗。每个人买甘蔗，大叔都得一个人手动帮忙削皮干净。两根甘蔗（虽然不大）8块钱，不贵，但买的人很少。就像那时的我所嚷嚷那样，这么冷的天，谁会买甘蔗。而且，吃甘蔗，本身就是件“很费力”的事。</p>
+<p>阿姨大叔这类人，并不是不努力不奋斗不聪明，相反地，他们比大多数人都更努力更能吃得苦，然而只是因为出身平凡，没有「资源」，才陷入黑洞般的「穷人陷阱」。更令人伤心的一个事实是，很多人凭借个人的社会关系、家庭背景，不用费太多努力，就能过上穷人几代人不可达到的生活水平。令人唏嘘啊。</p>
+]]></content>
+      <categories>
+        <category>weekly</category>
+      </categories>
+      <tags>
+        <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>babble</title>
+    <url>/2020/04/22/babble/</url>
+    <content><![CDATA[<h1 id="闲言絮语"><a href="#闲言絮语" class="headerlink" title="闲言絮语"></a>闲言絮语</h1><blockquote>
+<p>人们经常高估一天能做的事，却经常低估一年能做的事。</p>
+</blockquote>
+<a id="more"></a>
+
+
+
+<p>不可能一辈子本科的，</p>
+<p>起码也得是名校的master,PhD.</p>
+<p>不可能一辈子打工，</p>
+<p>整天敲代码度日，</p>
+<p>说好的理想抱负，</p>
+<p>改变世界，实现个人价值呢？</p>
+<p>我没有多少条路可以选，</p>
+<p>疯过傻过后，回头一看，</p>
+<p>我还是去做只会读书的那个nerd，</p>
+<p>只不过想法变了而已。</p>
+<p>From <u>ruanyifeng.com/blog/</u></p>
+]]></content>
+      <tags>
+        <tag>msg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-backup</title>
+    <url>/2020/03/16/hexo-backup/</url>
+    <content><![CDATA[<h1 id="hexo-backup-amp-restore"><a href="#hexo-backup-amp-restore" class="headerlink" title="hexo backup &amp; restore"></a>hexo backup &amp; restore</h1><blockquote>
+<p>项目初衷：我们想要解决在不同电脑上都能维护博客或配置、发布的内容丢失可恢复的问题。</p>
+<p>这篇文章“鸽”了有很长一段时间, 昨天晚上刚好mac-pro重装node.js，顺便走了一遍-恢复hexo博客。</p>
+</blockquote>
+<p>blog-backup， 主要分为三部分: 备份到github上托管， 安装配置Node.js，恢复博客。</p>
+<a id="more"></a>
+
+
+
+<h3 id="备份到GitHub"><a href="#备份到GitHub" class="headerlink" title="备份到GitHub"></a>备份到GitHub</h3><p>首先，先分析hexo生成静态网页，部署到GitHub-repository的内容。</p>
+<p><strong>我们不难发现</strong>：部署的文件内容，其实是<code>./public</code>文件夹下的所有内容。事实上，插件<code>hexo-deploy-git</code>通过COPY<code>hexo-gernerate</code>后的<code>public</code>文件内容到<code>.deploy_git</code>文件夹下，然后push到远程分支<code>origin/master</code>上完成网站的部署。</p>
+<p>所以，我们的备份思路上，不妨上传blog文件夹下<strong>必要</strong>的文件即可。Plus, Git可以使用不同分支管理不同的内容，因此，我们就可以考虑使用GIt的分支来备份所有的文件。</p>
+<p>但是，<strong>具体哪些是必要的呢</strong>？最简单粗暴的方法，当然是备份整个文件夹。但是，身为心理洁癖，有点强迫症患者来说，始终心里觉得怪怪的。</p>
+<p>于是，得稍微分析hexo-blog不同文件夹的作用。</p>
+<h4 id="分析hexo-blog文件夹"><a href="#分析hexo-blog文件夹" class="headerlink" title="分析hexo-blog文件夹"></a>分析hexo-blog文件夹</h4><p>先看hexo-blog文件夹下的文件结构</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── README.md</span><br><span class="line">├── _config.yml</span><br><span class="line">├── db.json</span><br><span class="line">├── hello-world.md</span><br><span class="line">├── node_modules</span><br><span class="line">├── package-lock.json</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">├── themes</span><br><span class="line">└── to-do.md</span><br><span class="line"></span><br><span class="line">5 directories, 7 files</span><br></pre></td></tr></table></figure>
+
+<p>以下文件或者文件夹的作用：</p>
+<ul>
+<li><input checked disabled type="checkbox"> <p><code>_config.yml</code>文件： 站点配置文件，很多功能，插件配置都需要在此页面修改。</p>
+</li>
+<li><input disabled type="checkbox"> <p><code>node_modules</code>文件夹：hero-blog所依赖的模块</p>
+</li>
+<li><input checked disabled type="checkbox"> <p><code>package.json</code>文件：依赖的模块列表</p>
+</li>
+<li><input disabled type="checkbox"> <p><code>package-lock.json</code>文件：依赖的模块安装记录（由npm 根据<code>package.json</code>文件而生成)</p>
+</li>
+<li><input disabled type="checkbox"> <p><code>public</code>文件夹：hexo-generate 根据<code>public文件夹</code>里的.md文件而生存的静态文件</p>
+</li>
+<li><input checked disabled type="checkbox"> <p><code>scaffolds文件夹：</code>包含模版(post, page, tag等)，blog-customization可对其模版进行修改</p>
+</li>
+<li><input checked disabled type="checkbox"> <p><code>source</code>文件夹：包含所有源文件(.md)，<strong>这是最重要的内容之一</strong></p>
+</li>
+<li><input checked disabled type="checkbox"> <p><code>themes</code>文件夹：所有博客的主题文件夹(其中，<code>landscape</code>是<code>默认主题</code>)，其他的主题文件夹需要<code>git-clone</code></p>
+<blockquote>
+<p><del>⚠️：themes文件夹比较特殊，不是直接使用<code>git add</code>进行备份,因为通常themes都是由其他开发者进行开发维护，属于<code>git-submodule</code>。Git默认是直接跳过备份。因此我们需要通过<code>git submodule add</code>进行在hexo-backup分支上的<code>.gitmodules</code>的添加记录。</del></p>
+<blockquote>
+<p>那另外的 <code>.gitmodules</code> 作用又是什么呢？其实 <code>hexojs/hexo-starter</code> 是通过 Git 的 Submodule 功能来管理主题模块，本身仓库并不备份主题文件。</p>
+<p>其实我们对于主题文件的备份有两个方案：一个方案是将其内容全部上传进行备份。一方面可以保证原主题的更新不会影响你原先配置的效果，另一方面，主题可能在进行配置的时候还需要下载一些额外的库，直接上传可以避免再次下载这些内容和配置。另一个方案是像 <code>hexo-starter</code> 仓库一样通过 <code>Git-submodule</code> 功能来管理，这样可以进行主题的更新。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<p>相较于 Hexo 初始化使用的仓库的备份列表，它的仓库是 <a href="https://github.com/hexojs/hexo-starter" target="_blank" rel="noopener">hexojs/hexo-starter</a>。</p>
+<p>其备份列表</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scaffolds</span><br><span class="line"><span class="built_in">source</span></span><br><span class="line">themes</span><br><span class="line">.gitignore</span><br><span class="line">.gitmodules</span><br><span class="line">_config.yml</span><br><span class="line">package.json</span><br></pre></td></tr></table></figure>
+
+<p>对比一下，它抛弃了：</p>
+<ol>
+<li><del><code>node_modules</code> &amp; <code>package-lock.json</code></del>：这两部分内容，只要保留 <code>package.json</code>，执行 <code>npm install</code> 就可以下载、生成。</li>
+<li><del><code>public</code></del>：执行 <code>hexo g</code> 即可根据源文件生成网页内容。</li>
+</ol>
+<p>这些可重新生成的文件都可以不上传，因为它们只要使用特定的操作即可恢复。</p>
+<p>因此，最终备份文件列表</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scaffolds</span><br><span class="line"><span class="built_in">source</span></span><br><span class="line">themes</span><br><span class="line">themes_custom/next(存放对应主题修改的备份)</span><br><span class="line">.gitignore</span><br><span class="line">.gitmodules</span><br><span class="line">_config.yml</span><br><span class="line">package.json</span><br><span class="line"></span><br><span class="line"><span class="comment">#这样子我们同步之后，只需要对比一下把这些配置应用过去就可以快速完成对主题的配置。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h4><ol>
+<li>修改<code>.gitignore</code>文件，添加忽略名单</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.<span class="built_in">log</span></span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">package-lock.json</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>执行一下命令，在本地仓库创建<code>hexo-backup</code>分支</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-blog</span><br><span class="line">git init <span class="comment">#初始化空的Git仓库 hexo-blog/.git</span></span><br><span class="line"></span><br><span class="line">git checkut -b hexo-backup <span class="comment">#创建分支并跳转该分支</span></span><br><span class="line">git submodule add https://github.com/theme-next/hexo-theme-next.git themes/next </span><br><span class="line"><span class="comment">#添加位于 'themes/next' 的现存仓库到索引</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">git add . </span><br><span class="line">git commit -m <span class="string">"init blog backup"</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Last but not least,</p>
+<p>git branch -m master hexo-backup #重命名默认分支master</p>
+</blockquote>
+<ol start="5">
+<li>推送远程仓库</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:GaryLz/GaryLz.github.io.git</span><br><span class="line">git push <span class="comment">#自动创建同名的远程分支 hexo-backup(首次push的话，git push origin)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>普及一点，在某些场合，Git会自动在本地分支与远程分支之间，建立一种追踪关系（tracking）。比如，在<code>git clone</code>的时候，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说，本地的<code>master</code>分支自动”追踪”<code>origin/master</code>分支。</p>
+<p>Git也允许手动建立追踪关系。</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">git branch --<span class="keyword">set</span>-upstream master origin/next</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令指定<code>master</code>分支追踪<code>origin/next</code>分支。</p>
+<p>选自 <u><a href="https://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">阮一峰-Git远程操作详解</a></u></p>
+</blockquote>
+<h5 id="选做"><a href="#选做" class="headerlink" title="选做"></a>选做</h5><ol start="2">
+<li><p>我们可以删除不使用的主题 <code>landscape</code> 或者把主题路径添加到忽略列表中。</p>
+</li>
+<li><p>创建 <code>themes_custom/next</code> 文件夹，将对主题进行的配件修改的文件拷贝一份到这里</p>
+</li>
+</ol>
+<p>到Github上check一下，是否备份成功。如果有必要的话，最好将hexo-backup分支替换master分支，设置为Default-branch，方便往后的备份恢复。</p>
+<blockquote>
+<p> master分支就仅仅存着hexo-blog的静态网页，实在没什么必要设置为默认，而且并不会影响hexo d -g的使用。</p>
+</blockquote>
+<h3 id="安装配置Node-js"><a href="#安装配置Node-js" class="headerlink" title="安装配置Node.js"></a>安装配置Node.js</h3><blockquote>
+<p>昨晚刚好重装Nodejs,期间过程还有前任的指引，不算太过于曲折。想起第一次弄Node.js+hexo，那其中被各种出错所支配的恐惧😱，真的是一言难尽。</p>
+</blockquote>
+<p>篇幅有点长，不如调转另一博客，<a href="./Node.js-setup-on-Mac.md">Node.js setup on Mac</a></p>
+<h3 id="恢复博客"><a href="#恢复博客" class="headerlink" title="恢复博客"></a>恢复博客</h3><p>备份在手，装好Node.js。之后，恢复就难以相信的简单啦。</p>
+<h5 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h5><p>在另一台电脑上，恢复就几个命令操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir hexo-blog <span class="comment">#新建一个文件夹，恢复备份</span></span><br><span class="line"><span class="built_in">cd</span> hexo-blog</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:GaryLz/GaryLz.github.io.git .</span><br><span class="line"><span class="comment">#克隆默认远程分支hexo-backup上的备份，如果hexo-backup分支不是默认分支，需要加flag `-b hexo-backup`</span></span><br><span class="line"></span><br><span class="line">npm install <span class="comment">#根据package.json，安装hexo-blog需要的依赖包，生成package-lock.json文件</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment">#最后测试,正常更新博客</span></span><br><span class="line">hexo s -g</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+
+
+<p>大家搭建好博客之后，千万别忘记备份哦:&lt;3</p>
+<h4 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h4><p>讲诉个亲身遇到的奇怪问题。</p>
+<p>成功恢复后，尝试hexo-blog更新一则post,看是否功能正常。</p>
+<p>但是我遇到一个问题：使用hexo-deploy-git成功push到origin/master分支后，会出现清空过去master分支上的所有commits。</p>
+<p>Why?</p>
+<blockquote>
+<p>其实在写博客时候，回顾deploy的原理。<strong>事实上，插件<code>hexo-deploy-git</code>通过COPY<code>hexo-gernerate</code>后的<code>public</code>文件内容到<code>.deploy_git</code>文件夹下，然后push到远程分支<code>origin/master</code>上完成网站的部署。</strong></p>
+<p>但是我又在.gitignore文件，添加了 <code>deploy*/</code> 到忽略名单。</p>
+<p>即deploy-git的追踪并没有备份下来。所以，别的电脑恢复后，执行 <code>hexo d</code> 之类的命令，会在本地初始化一个 <code>.git</code>文件夹，新建一个新的master分支，然后push到<code>origin/master</code>，导致之前原有的<code>origin/master</code>分支被清空（替代)。</p>
+</blockquote>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol>
+<li><p><a href="https://mupceet.com/2019/09/backup-hexo-blog/" target="_blank" rel="noopener">Mupceet-Hexo 博客备份与恢复</a></p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000015416829" target="_blank" rel="noopener">segmentfault-一篇文章了解Mac上Node环境配置</a></p>
+</li>
+<li><p><a href="https://mupceet.com/2019/08/build-blog-based-on-hexo/" target="_blank" rel="noopener">Mupceet-Hexo 博客搭建与主题配置（零基础版）</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>setups</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>backup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>setup-on-clash</title>
+    <url>/2020/04/06/setup-on-clash/</url>
+    <content><![CDATA[<h1 id="Setup-on-clash"><a href="#Setup-on-clash" class="headerlink" title="Setup on clash"></a>Setup on clash</h1><blockquote>
+<p>I super Love the cat logo for <code>clash</code> app. </p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/04/06/Xs37eyd2uoVZMip.png" alt="image-20200406181607926"></p>
+<a id="more"></a>
+
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>Thanks to the Developer @WhoJave @yichengchen @Dreamacro</p>
+<p>Here are links for download. </p>
+<ul>
+<li><a href="https://github.com/WhoJave/clashX/releases" target="_blank" rel="noopener">ClashXR</a></li>
+<li><a href="https://github.com/yichengchen/clashX/releases" target="_blank" rel="noopener">ClashX</a></li>
+</ul>
+<h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><p>Here are something that we need setting up right.</p>
+<ol>
+<li><p>Proxy Mode </p>
+<blockquote>
+<p>choose the mode ‘rule’</p>
+</blockquote>
+</li>
+<li><p>Set as system proxy(❌ as default if you didn’t tick it ✅)</p>
+<blockquote>
+<p>Proxy switch</p>
+</blockquote>
+</li>
+<li><p>Start as login</p>
+<blockquote>
+<p>Clash will start automatically every time the user logs in </p>
+</blockquote>
+</li>
+<li><p>Dashboard</p>
+<blockquote>
+<p>Check the setting information. </p>
+<p><strong>Please note that Proxy local listening ports are 7890(HTTP) and 7891(Socks5) by default.</strong></p>
+</blockquote>
+</li>
+<li><p>Config</p>
+<p>from menu(config-remote-manage)</p>
+<blockquote>
+<p>You have to make a new config file for your proxy info(including proxy rules, ip address, ports, key….) based on <code>config.yaml</code></p>
+<p>Or you can type in your <code>remote</code> config address fetching files from agent hosts.</p>
+</blockquote>
+</li>
+</ol>
+<p>I’ll talk about it later. </p>
+<h4 id="Subconverter"><a href="#Subconverter" class="headerlink" title="Subconverter"></a>Subconverter</h4><p>Most of time we use service from proxy service provider(PSP).</p>
+<p>But some of PSP don’t provide remote config service but rather a <code>subscription link</code>.</p>
+<blockquote>
+<p><strong>Please make sure that don’t leak the subscription link to others. It’s like your only key to ‘house’. Nobody wants to share their services with strangers.</strong></p>
+</blockquote>
+<p>Then we need one of useful tool called <code>subconverter</code> to get a remote config address that we want.</p>
+<blockquote>
+<p>Subconverter: a service that can write those proxy info into a config file that clash supports.</p>
+</blockquote>
+<h5 id="Remote-config-address"><a href="#Remote-config-address" class="headerlink" title="Remote config address"></a>Remote config address</h5><p>The address is based on some rules. So let’s analyze it.</p>
+<p>Two parts: <strong><u>Remote host address + your subscription link (in another form)</u></strong></p>
+<ol>
+<li><h6 id="Remote-host-address"><a href="#Remote-host-address" class="headerlink" title="Remote host address"></a>Remote host address</h6></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> some free hosts below</span></span><br><span class="line">https://subto.herokuapp.com/sub?target=&#123;%TARGET%&#125;&amp;url=&#123;%URL%&#125;</span><br><span class="line">https://sub.ops.ci/sub?target=&#123;%TARGET%&#125;&amp;url=&#123;%URL%&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    <code>Arguments</code>:</p>
+<ul>
+<li><p><code>target</code>: (destination app): i.e. clash, clashr, quan, quanx…</p>
+</li>
+<li><p><code>url</code>: (your proxy subscription): Process with <a href="https://www.urlencoder.org/" target="_blank" rel="noopener">URLEncode</a> first.</p>
+<blockquote>
+<p>Look for more info at <a href="https://github.com/tindy2013/subconverter" target="_blank" rel="noopener">here</a></p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li><h6 id="Subscription-link-convert"><a href="#Subscription-link-convert" class="headerlink" title="Subscription link convert"></a>Subscription link convert</h6><p>Presume that your proxy subscription link is “<a href="https://sub.ssr.sh/link/xxxxxxxxxxxxxxxx?mu=1&quot;" target="_blank" rel="noopener">https://sub.ssr.sh/link/xxxxxxxxxxxxxxxx?mu=1&quot;</a>.</p>
+</li>
+</ol>
+<ul>
+<li>Go to <a href="https://www.urlencoder.org/" target="_blank" rel="noopener">urlEncode</a></li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/06/Kg2vOexoMXhBb8c.jpg" alt="img"></p>
+<p>Then we got a link “https%3A%2F%2Fsub.ssr.sh%2Flink%2Fxxxxxxxxxxxxxxxx%3Fmu%3D1”.</p>
+<ol start="3">
+<li><h6 id="A-FINAL-STEP-fill-TARGET-and-URL-in-Access-Interface-with-actual-values"><a href="#A-FINAL-STEP-fill-TARGET-and-URL-in-Access-Interface-with-actual-values" class="headerlink" title="A FINAL STEP: fill %TARGET% and %URL% in Access Interface with actual values:"></a>A FINAL STEP: fill %TARGET% and %URL% in Access Interface with actual values:</h6></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1. https://subto.herokuapp.com/sub?target=&#123;%TARGET%&#125;&amp;url=&#123;%URL%&#125;</span><br><span class="line">2. #urlEncode</span><br><span class="line">before: https://sub.ssr.sh/link/xxxxxxxxxxxxxxxx?mu=1</span><br><span class="line">after: https%3A%2F%2Fsub.ssr.sh%2Flink%2Fxxxxxxxxxxxxxxxx%3Fmu%3D1</span><br><span class="line">3. #Fill arguments in Access Interface with actual values.</span><br><span class="line">i.e. https://subto.herokuapp.com/sub?target=clashr&amp;url=https%3A%2F%2Fsub.ssr.sh%2Flink%2Fxxxxxxxxxxxxxxxx%3Fmu%3D1</span><br></pre></td></tr></table></figure>
+
+<p>Finally subscribe this link in Clash and you are done!</p>
+<h4 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h4><h5 id="Proxy-listening-ports"><a href="#Proxy-listening-ports" class="headerlink" title="Proxy listening ports"></a>Proxy listening ports</h5><blockquote>
+<p>After successfully subscribe on clash, I met with many nuisances in daliy life due to <code>listening ports conflicts.</code></p>
+<p>Clash sets local listening ports as 7890/7891 by default. However, I got used to listening ports 1086/1087.</p>
+</blockquote>
+<p>So could I get a way to modify the ones that I feel comfortable with. - The answer is “YES”.</p>
+<p>in the dir <code>~/.config/clash</code>,</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$ ls -l  ~/.config/clash</span><br><span class="line">total 9688</span><br><span class="line">-rw-r--r--@ 1 gary  admin  4232607  1  1 11:01 Country.mmdb</span><br><span class="line">-rw-r--r--@ 1 gary  admin      861  4  6 00:07 config.yaml</span><br></pre></td></tr></table></figure>
+
+<p>and there’re also files i.e. <code>your_subscription.yaml</code></p>
+<ul>
+<li>You need to revise the default ports in <code>config.yaml</code> and check whether the ports info is wanted or not as in  <code>your_subscription.yaml</code>.</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/06/gXO8wxbv1lpMyKJ.png" alt="image-20200406205537108"></p>
+<ul>
+<li>Restart <code>clash</code> app waiting for the modifications to take effect.</li>
+</ul>
+<p>Waiting for more.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a href="https://ops.ci/docs/clashxr.html" target="_blank" rel="noopener"> macOS ClashXR 安装配置教程</a></li>
+<li><a href="https://merlinblog.xyz/wiki/api.html" target="_blank" rel="noopener">SS/SSR/V2Ray订阅类型转换教程 | 万能API</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>setups</category>
+      </categories>
+      <tags>
+        <tag>proxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>weekly-03</title>
+    <url>/2020/05/17/weekly-03/</url>
+    <content><![CDATA[<h1 id="Weekly-03"><a href="#Weekly-03" class="headerlink" title="Weekly-03"></a>Weekly-03</h1><blockquote>
+<p>Credits: The main news sources is from <em>The Economist Magazine(US edition)</em>. ONLY FOR INDIVIDUAL USAGE.</p>
+</blockquote>
+<p><strong>Issue: <u>May.15,2020</u></strong> </p>
+<p>All are seeking for a back-to-work plan now. </p>
+<a id="more"></a>
+
+<h3 id="Politics"><a href="#Politics" class="headerlink" title="Politics"></a>Politics</h3><ul>
+<li><p>中印士兵又在争议边界两边对骂。</p>
+</li>
+<li><p>Trump宣布，给中国记者的工作签证需要每90天内重新审核续签。民主党认为没必要这样做。</p>
+</li>
+<li><p><strong>比较雷人</strong>：伊朗在上周一次军事演习中发生严重过失事故，自家导弹不小心击中自家的导弹补给舰，造成舰上的19名船员死亡。</p>
+</li>
+<li><p>联合国维和部队在北部马里🇲🇱遭遇路边炸弹袭击，造成三名人员死亡。</p>
+</li>
+<li><p>疫情总是一波接着一波。刚结束封城的武汉，最近又接收到新的感染病例。邻近已经控制住疫情的韩国🇰🇷，也通报一波夜店聚集性感染病例。</p>
+</li>
+<li><p><u>最不可思议的一则新闻</u></p>
+<p>美国白宫要求所有人都需要戴口罩，但除了Trump和副总统Pence以外（不用带😷，肯定是这两人对口罩有一定误会吧）。</p>
+</li>
+</ul>
+<h3 id="Business"><a href="#Business" class="headerlink" title="Business"></a>Business</h3><ul>
+<li><p>上海迪士尼重新开放了。不过，还只是一定限度开放——限制每日游客数量，且游客必须要有电子健康码。</p>
+</li>
+<li><p>沙特又打算减产1百万桶/每日原油产量。阿联酋🇦🇪、科威特🇰🇼紧跟其后。但是，由于需求疲软，原油价格还是提不上来，继续维持低价位。</p>
+</li>
+<li><p>「沙特阿美」报告称今年主权基金净利润同比去年下降1/4，但是仍然坚持向股东派息。由于石油收入大幅度缩减，为了筹更多的钱，开源节流，沙特政府打算提高增值税至原来的三倍，即15%。</p>
+</li>
+<li><p>「2020全球疫情下的经济打击甚至比过去任何一场经济危机还要大，还要久。」各国经济萎缩、失业率依次地刷新纪录，比自二战以来的任何一场经济危机还要大/高。「更高更快更强哦！」</p>
+</li>
+<li><p>「为土耳其🇹🇷货币默哀10s」土耳其金融监管会发布一项短期禁令——不容许BNP Paribas巴黎银行，花旗集团，UBS联邦快递 参与本国货币（里拉）交易市场。在货币里拉又一次贬值到历史最低后，此举是当局为了支撑里拉而不得不实施的应对策略。</p>
+</li>
+<li><p>「汽车市场还继续处于寒冬」虽然在中国汽车销量对比去年同期4月底，已经增长4.4%。这是自2018中期以来第一次实现的增长，但从整个汽车行业来看，阴霾还未有散去啊。</p>
+</li>
+<li><p>同样是一则关于车的新闻。全球第二大汽车制造商，丰田Toyota预测今年的运营利润将会下降8成。</p>
+</li>
+<li><p>「疫情当头，反而是实体经济受打击更大。虚拟经济可以不受环境影响，实现盈利增长。」腾讯就这样得益于这场疫情反而搞活了流媒体和社交业务。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>weekly</category>
+      </categories>
+      <tags>
+        <tag>weekly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>youth</title>
+    <url>/2020/04/26/youth/</url>
+    <content><![CDATA[<p>我们现在最大的资本就是</p>
+<p>——<strong>年轻</strong>，</p>
+<a id="more"></a>
+
+<p>比大多数人拥有更多宝贵的时间。</p>
+<p>所以说，</p>
+<p>不要轻易挥霍它们。</p>
+<p>因为青春永远一去不复返。</p>
+]]></content>
+      <tags>
+        <tag>msg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>婴儿的初啼</title>
+    <url>/2019/03/17/%E5%A9%B4%E5%84%BF%E7%9A%84%E5%88%9D%E5%95%BC/</url>
+    <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!!"></a>Hello world!!</h1><p>I’m here writing the first post on my blog site.<br>…</p>
+<p>好激动呀…OMG…                </p>
+]]></content>
+      <tags>
+        <tag>msg</tag>
+      </tags>
+  </entry>
+</search>
